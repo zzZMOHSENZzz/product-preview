@@ -1,0 +1,147 @@
+:root {
+  --main-color-bg : hsl(217, 54%, 11%);
+  --main-color-container : hsl(216, 50%, 16%);
+  --text-color-container : hsl(215, 24%, 52%);
+  --text-color-white : white;
+  --eth-color : hsl(178, 100%, 50%);
+  --cursor-pointer : pointer;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--main-color-bg);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  background-color: var(--main-color-container);
+  border-radius: 10px;
+  padding: 15px;
+}
+.container > :not(.creation) {
+  margin-bottom: 20px;
+}
+
+.image {
+  position: relative;
+  width: auto;
+  height: 250px;
+  background-image: url(image-equilibrium.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  cursor: var(--cursor-pointer);
+}
+.image::before {
+  content : "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0%;
+  left: 0%;
+  border-radius:inherit;
+  opacity: 40%;
+  transition: background-color .3s 0s linear;
+}
+
+.view {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  filter :opacity(0%);
+  transition: filter .3s 0s ;
+}
+
+.image:hover::before {
+  background-color: var(--eth-color);
+}
+.image:hover .view {
+  filter:opacity(100%);
+}
+
+h3 {
+  all: unset;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+h3 ,
+#creator {
+  color: var(--text-color-white);
+  cursor: var(--cursor-pointer);
+  transition: color .3s 0s linear;
+}
+p,
+.creation{
+  color: var(--text-color-container);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time {
+  display: flex;
+  color : var(--text-color-container);
+}
+.eth {
+  display: flex;
+  color : var(--eth-color);
+  text-transform: uppercase;
+}
+.info svg {
+  margin-right: 5px;
+}
+.creation {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--text-color-white);
+  text-align: center;
+  padding: 10px 0px;
+  color: var(--text-color-container);
+}
+#creator {
+  padding-left: 10px;
+}
+.creation::before {
+  content: "";
+  position: absolute;
+  height: .07px;
+  width: 100%;
+  background-color: var(--text-color-container);
+  top: -8%;
+  opacity: 30%;
+}
+
+.avatar  {
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 30px;
+  margin-right: 10px;
+}
+
+#creator:hover,
+h3:hover {
+color: var(--eth-color);
+}
+
+
+
